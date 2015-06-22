@@ -24,7 +24,11 @@ def main():
 				if pygame.mouse.get_pressed()[0] == 1:
 					x = int(pygame.mouse.get_pos()[0] * tam / scrn.get_size()[0])
 					y = int(pygame.mouse.get_pos()[1] * tam / scrn.get_size()[1])
-					game.tab.cambiarPosicion(x,y)
+					game.tab.setPosicion(x,y,1)
+				elif pygame.mouse.get_pressed()[2] == 1:
+					x = int(pygame.mouse.get_pos()[0] * tam / scrn.get_size()[0])
+					y = int(pygame.mouse.get_pos()[1] * tam / scrn.get_size()[1])
+					game.tab.setPosicion(x,y,0)
 
 		scrn.fill((0,0,0))
 		game.tab.dibujar(scrn, (0,0,0), (0,240,0))
