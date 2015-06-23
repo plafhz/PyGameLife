@@ -7,3 +7,5 @@ Instrucciones:
 - Barra espaciadora: reanudar/pausar juego
 - tecla "V": activar/desactivar cuadricula
 - tecla "R": limpiar la pantalla
+- tecla "->": siguiente generiación
+- tecla "<-": generación anterior

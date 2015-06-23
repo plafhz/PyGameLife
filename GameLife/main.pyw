@@ -10,6 +10,8 @@ def main():
 	play_icon  = pygame.image.load("img/play.png")
 	clock = pygame.time.Clock()
 	scrn = pygame.display.set_mode((800,600))
+	pygame.display.set_caption("GameOfLife")
+	pygame.display.set_icon(pygame.image.load("img/icon.png"))
 	game = Juego(Tablero(tam))
 	pausa = True
 	colorLineas = (0,0,0)
@@ -25,6 +27,10 @@ def main():
 					game = Juego(Tablero(tam))
 				if pygame.key.get_pressed()[K_v]:
 					colorLineas = (50,50,50) if colorLineas == (0,0,0) else (0,0,0)
+				if pygame.key.get_pressed()[K_RIGHT] and pausa:
+					game.update()
+				if pygame.key.get_pressed()[K_LEFT] and pausa:
+					game.getMemoria()
 			if evento.type == MOUSEMOTION or evento.type == MOUSEBUTTONDOWN:
 				if pygame.mouse.get_pressed()[0] == 1:
 					x = int(pygame.mouse.get_pos()[0] * tam / scrn.get_size()[0])

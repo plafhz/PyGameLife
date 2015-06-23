@@ -3,8 +3,10 @@ from copy import deepcopy
 class Juego:
 	def __init__(self, tab):
 		self.tab = tab
+		self.memoria = []
 
 	def update(self):
+		self.guardarPosicion()
 		tableroNuevo = deepcopy(self.tab.tablero)
 
 		for y in range(0, self.tab.tam):
@@ -38,3 +40,13 @@ class Juego:
 						tableroNuevo[x][y] = 0
 
 		self.tab.tablero = tableroNuevo
+
+	def guardarPosicion(self):
+		if len(self.memoria) > 100:
+			del(self.memoria[0])
+		self.memoria.append(deepcopy(self.tab.tablero))
+
+	def getMemoria(self):
+		if len(self.memoria) > 0:
+			self.tab.tablero = deepcopy(self.memoria[-1])
+			del(self.memoria[-1])
